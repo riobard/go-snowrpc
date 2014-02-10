@@ -94,7 +94,7 @@ func (c *serverCodec) WriteResponse(rsp *rpc.Response, x interface{}) error {
 		Msg  string `json:"message",omitempty`
 	}
 
-	if header.Msg == "" {
+	if rsp.Error == "" {
 		header.Code = 200
 		header.Msg = "OK"
 	} else {
